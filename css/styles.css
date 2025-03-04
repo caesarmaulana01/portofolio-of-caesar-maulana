@@ -1283,7 +1283,9 @@ body {
 a {
     color      : var(--color-1);
     transition : all 0.3s ease-in-out;
+    position   : relative;  /* Pastikan elemen memiliki posisi */
 }
+
 
 a:focus,
 a:hover,
@@ -3616,6 +3618,7 @@ img.u-pull-left {
     color               : white;
     transition-duration : .5s;
     position            : relative;
+    
 }
 
 .folio-list__item-link:focus,
@@ -3765,18 +3768,39 @@ img.u-pull-left {
  * ## modal popup
  * ------------------------------------------------------------------- */
 .modal-popup {
-    max-width        : 680px;
+    max-width        : 1920px;
     background-color : white;
     font-size        : calc(var(--text-size) * 0.9447);
     line-height      : var(--vspace-0_875);
     color            : rgba(0, 0, 0, 0.75);
     overflow-y       : auto;
     position         : relative;
+    max-height: 90vh; /* Batasi tinggi modal agar tidak melebihi viewport */
+    overflow-y: auto; /* Aktifkan scroll jika konten melebihi batas */
+
 }
 
-.modal-popup img {
-    margin-bottom : var(--vspace-0_75);
+.modal-popup a {
+    position: absolute;
+    font-size: 10px;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    display: inline-block; /* Pastikan tidak ada perubahan ukuran tak terduga */
+    text-align: center;
+    white-space: nowrap;
+    margin-top: 20px;
+    margin-left: 20px;
 }
+
+.modal-popup a:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
 
 .modal-popup h5 {
     font-family   : var(--font-1);
@@ -3788,9 +3812,20 @@ img.u-pull-left {
     color         : black;
 }
 
-.modal-popup__desc {
-    padding : 0 var(--vspace-1_25) var(--vspace-0_25);
+
+.row.u-add-half-bottom .modal-popup__desc {
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
 }
+
+.modal-popup__desc {
+    padding : 0 var(--vspace-1) var(--vspace-0_25);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
 
 .modal-popup__cat {
     list-style   : none;
@@ -3845,6 +3880,18 @@ img.u-pull-left {
     background-color : var(--color-body);
     color            : white;
 }
+
+.modal-popup img {
+    width         : 85%;
+    max-width     : 600px; /* Batasi ukuran gambar */
+    height        : auto;
+    margin-bottom : var(--vspace-0_75);
+    display       : block;
+    margin-left   : auto;
+    margin-right  : auto;
+    margin-top  : var(--vspace-0_75);
+}
+
 
 /* ------------------------------------------------------------------- 
  * ## testimonials
@@ -3937,6 +3984,117 @@ img.u-pull-left {
     color       : var(--color-text-light);
 }
 
+
+/* Section Achievements */
+.s-achievements {
+    padding-top    : var(--vspace-5);
+    padding-bottom : var(--vspace-3_5);
+}
+.s-achievements .h2 {
+    margin-top : 0;
+}
+
+.s-achievements h2 {
+    margin-bottom: var(--vspace-0_75); /* Sesuaikan dengan section lain */
+}
+.s-achievements h3 {
+    margin-top: var(--vspace-0_5); /* Sesuaikan dengan section lain */
+}
+
+.s-achievements p.h1 {
+    margin-top: var(--vspace-0_5); /* Pastikan tidak ada jarak berlebih */
+}
+
+    /* Achievements Layout */
+    .achievement {
+    margin-top : var(--vspace-3);
+}
+.achievements .swiper-container {
+    padding-bottom : var(--vspace-2_5);
+}
+
+.achievements .swiper-container-horizontal .swiper-pagination-bullets .swiper-pagination-bullet {
+        margin : 0 9px;
+    }
+
+    .achievements .swiper-pagination-bullet {
+    width      : 6px;
+    height     : 6px;
+    background : white;
+    opacity    : 0.4;
+    }
+
+    .achievements .swiper-pagination-bullet-active {
+    background : var(--color-1);
+    opacity    : 1;
+    }
+
+    /* ------------------------------------------------------------------- 
+    * ## achievement slider 
+    * ------------------------------------------------------------------- */
+    .achievement-slider__slide {
+        position : relative;
+    }
+
+    .achievement-slider__slide:hover .achievement-slider__image {
+        filter : none;
+    }
+
+    .achievement-slider__slide:hover .achievement-slider__cite strong {
+        color : var(--color-1);
+    }
+
+    .achievement-slider__slide:hover .achievement-slider__cite span {
+        color : white;
+    }
+
+        
+    .achievement-slider__author {
+        display       : inline-block;
+        min-height    : var(--vspace-1);
+        margin-top: var(--vspace-1);
+        padding-left  : 0;
+        position      : relative;
+        text-align: center; /* Opsional, jika ingin gambar tetap sejajar */
+    }
+
+    .achievement-slider__image {
+        width         : auto;
+        height        : auto;
+        border-radius : 0;
+        outline       : none;
+        position      : relative;
+        top           : 0;
+        left          : 0;
+        filter        : grayscale(100%);
+        transition    : all 0.3s ease-in-out;
+    }
+
+    .achievement-slider__cite {
+        display : block;
+    }
+
+    .achievement-slider__cite strong,
+    .achievement-slider__cite span {
+        font-style : normal;
+        transition : all 0.3s ease-in-out;
+    }
+
+    .achievement-slider__cite strong {
+        font-size   : calc(var(--text-size) * 0.8947);
+        font-weight : 400;
+        line-height : var(--vspace-0_75);
+        color       : white;
+    }
+
+    .achievement-slider__cite span {
+        display     : block;
+        font-size   : calc(var(--text-size) * 0.7368);
+        font-weight : 300;
+        line-height : var(--vspace-0_5);
+        color       : var(--color-text-light);
+    }
+
 /* ------------------------------------------------------------------- 
  * responsive:
  * works
@@ -4024,9 +4182,7 @@ img.u-pull-left {
         display : none;
     }
 
-    .modal-popup__desc {
-        padding : 0 var(--vspace-1) var(--vspace-0_25);
-    }
+
 }
 
 
@@ -4067,6 +4223,7 @@ img.u-pull-left {
 .contact-links a,
 .contact-social a {
     color : var(--color-text-light);
+    
 }
 
 .contact-links a:focus,
@@ -4086,9 +4243,6 @@ img.u-pull-left {
     padding-left : 0;
 }
 
-.contact-social li::after {
-    content : ",  ";
-}
 
 .contact-social li:last-child::after {
     display : none;
@@ -4238,3 +4392,4 @@ img.u-pull-left {
         right : 6vw;
     }
 }
+
