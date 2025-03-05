@@ -3491,6 +3491,8 @@ img.u-pull-left {
 
 
 
+
+
 .timeline__block:last-child {
     padding-bottom : 0;
 }
@@ -3530,14 +3532,12 @@ img.u-pull-left {
     color          : var(--color-text-light);
     margin-top     : -.2rem;
 }
-
 /* Hover Effect */
 #certFilter:hover {
     background-color: var(--color-2);
     color: var(--color-text-dark);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-
 
 /* Dropdown Styling */
 .cert-dropdown-wrapper {
@@ -3545,28 +3545,33 @@ img.u-pull-left {
     display: inline-block;
     width: 100%;
     max-width: 350px;
-    opacity: 0; /* Mulai dengan elemen tidak terlihat */
-    transform: translateY(20px); /* Mulai dari posisi 20px ke bawah */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 /* Custom Arrow untuk Dropdown */
 .cert-dropdown-wrapper::after {
     content: "";
     position: absolute;
-    top: 35%;
-    right: 10px;
+    top: 30%;
+    right: 12px;
     width: 0;
     height: 0;
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 8px solid var(--color-text);
     pointer-events: none;
+    transition: transform 0.3s ease;
 }
 
 /* Styling untuk Dropdown */
 .cert-dropdown-wrapper select {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 2px solid var(--color-2);
     border-radius: var(--border-radius);
     background-color: var(--color-body);
@@ -3575,28 +3580,66 @@ img.u-pull-left {
     font-family: var(--font-1);
     cursor: pointer;
     appearance: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-
+.cert-dropdown-wrapper select:hover {
+    border-color: var(--color-text-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
 /* Hover Effect untuk Custom Arrow */
 .cert-dropdown-wrapper:hover::after {
     border-top-color: var(--color-text-dark);
 }
 
-
 /* Fokus pada dropdown */
 #certFilter:focus {
     outline: none;
     border-color: var(--color-text-dark);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Dropdown ketika aktif *
+/* Dropdown ketika aktif dengan animasi slide down */
+.cert-dropdown-wrapper select:focus {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efek untuk saat dropdown terbuka */
+.cert-dropdown-wrapper:focus-within {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cert-dropdown-wrapper:focus-within::after {
+    transform: rotate(180deg);
+}
+
 /* Gaya tambahan untuk meningkatkan UX */
 .cert-dropdown-wrapper select option {
     background: var(--color-body);
     color: var(--color-text);
+    padding: 8px;
 }
+
+/* Animasi Slide Down untuk Certifications */
+/* Animasi Slide Down untuk Certifications */
+#certifications .timeline__block {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#certifications .timeline__block.show {
+    opacity: 1;
+    max-height: 1000px; /* Cukup besar agar bisa auto menyesuaikan */
+    transform: translateY(0);
+}
+
+
 
 /* ------------------------------------------------------------------- 
  * responsive:

@@ -1,8 +1,3 @@
-/* ===================================================================
- * Luther 1.0.0 - Main JS
- *
- * ------------------------------------------------------------------- */
-
 (function(html) {
 
     "use strict";
@@ -46,7 +41,7 @@
         delay: anime.stagger(400)
     })
     .add({
-        targets: ['#certFilter', '.cert-dropdown-wrapper'], // Tambahkan animasi untuk dropdown
+        targets: ['#certFilter', '.cert-dropdown-wrapper', '.cert-dropdown-wrapper::after'], // Tambahkan animasi untuk dropdown
         translateY: [20, 0], // Efek rise up
         opacity: [0, 1]
     })
@@ -350,22 +345,23 @@
     }; // end ssMoveTo
     const filterCertifications = function() {
         var selected = document.getElementById('certFilter').value;
-    
+        
         var certSection = document.getElementById('certifications');
-        if (!certSection) return;
+        if (!certSection) return; 
     
         var allCerts = certSection.querySelectorAll('.timeline__block');
     
         allCerts.forEach(cert => {
             if (selected === 'all' || cert.classList.contains('cert-' + selected)) {
-                cert.style.display = "block"; // Tampilkan elemen
-                cert.classList.add('show'); // Tambahkan kelas 'show'
+                cert.style.display = "block"; // Pastikan elemen tampil sebelum animasi
+                setTimeout(() => cert.classList.add('show'), 10);
             } else {
-                cert.style.display = "none"; // Sembunyikan elemen
-                cert.classList.remove('show'); // Hapus kelas 'show'
+                cert.classList.remove('show');
+                setTimeout(() => cert.style.display = "none", 500); // Sembunyikan setelah animasi selesai
             }
         });
     };
+    
     
     /* Initialize */
     (function ssInit() {
