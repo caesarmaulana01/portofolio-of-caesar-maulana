@@ -4005,8 +4005,8 @@ img.u-pull-left {
     margin-top: var(--vspace-0_5); /* Pastikan tidak ada jarak berlebih */
 }
 
-    /* Achievements Layout */
-    .achievement {
+/* Achievements Layout */
+.achievement {
     margin-top : var(--vspace-3);
 }
 .achievements .swiper-container {
@@ -4061,7 +4061,7 @@ img.u-pull-left {
     .achievement-slider__image {
         width         : auto;
         height        : auto;
-        max-height: 300px;
+        max-height: 250px;
         border-radius : 0;
         outline       : none;
         position      : relative;
@@ -4095,6 +4095,31 @@ img.u-pull-left {
         line-height : var(--vspace-0_5);
         color       : var(--color-text-light);
     }
+
+/* Section Skills */
+.s-skills {
+    padding-top: var(--vspace-5);
+    padding-bottom: var(--vspace-3_5);
+}
+
+.s-skills .h2 {
+    margin-top: 0;
+}
+
+.s-skills h2 {
+    margin-bottom: var(--vspace-0_75); /* Sesuaikan dengan section lain */
+    text-align: center; /* Supaya lebih rapi */
+}
+
+
+.s-skills .column {
+    flex: 1;
+    min-width: 280px; /* Menjaga agar tetap responsif */
+}
+
+
+
+
 
 /* ------------------------------------------------------------------- 
  * responsive:
