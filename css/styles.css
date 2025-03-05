@@ -3780,21 +3780,41 @@ img.u-pull-left {
 
 }
 
+.modal-popup__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;  /* Jarak antar tombol */
+    justify-content: center;  /* Posisi tombol di tengah */
+    margin-top: 20px;
+    position: relative; /* Pastikan tidak bertumpuk */
+    width: 100%; /* Pastikan tombol tetap dalam batas modal */
+}
+
+
+
+.modal-popup .button:hover {
+    background-color: var(--color-2);
+}
+
+/* Hapus posisi absolut pada .modal-popup a */
 .modal-popup a {
-    position: absolute;
-    font-size: 10px;
-    top: 10px;
-    left: 10px;
-    z-index: 10;
+    position: relative;
+    font-size: 14px;
+    top: auto;
+    left: auto;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 5px 10px;
-    display: inline-block; /* Pastikan tidak ada perubahan ukuran tak terduga */
+    display: inline-block;
     text-align: center;
     white-space: nowrap;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin: 0; /* Hapus margin yang menyebabkan pergeseran */
 }
+
+.button:hover {
+    background-color: var(--color-2);
+}
+
 
 .modal-popup a:hover {
     background: rgba(0, 0, 0, 0.9);
@@ -3820,9 +3840,20 @@ img.u-pull-left {
 }
 
 .modal-popup__desc {
-    padding : 0 var(--vspace-1) var(--vspace-0_25);
-    margin-left: 100px;
-    margin-right: 100px;
+    padding : 0 var(--vspace-0_123) var(--vspace-0_125);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.modal-popup__desc ul {
+    list-style-position: inside; /* Memastikan bullet tetap dalam batas */
+    padding-left: 0; /* Menghapus padding bawaan */
+    text-align: left; /* Memastikan teks rata kiri */
+}
+
+.modal-popup__desc ul li {
+    margin-bottom: 8px; /* Beri jarak antar item */
+    text-align: left; /* Pastikan setiap elemen list tetap rata kiri */
 }
 
 
