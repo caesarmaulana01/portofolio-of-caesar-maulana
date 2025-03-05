@@ -13,10 +13,10 @@
 
    /* Animations
     * -------------------------------------------------- */
-    const tl = anime.timeline( {
-        easing: 'easeInOutCubic',
-        duration: 800,
-        autoplay: false
+   const tl = anime.timeline({
+    easing: 'easeInOutCubic',
+    duration: 800,
+    autoplay: false
     })
     .add({
         targets: '#loader',
@@ -40,31 +40,35 @@
         opacity: [0, 1]
     }, '-=200')
     .add({
-        targets: [ '.s-intro .text-pretitle', '.s-intro .text-huge-title'],
+        targets: ['.s-intro .text-pretitle', '.s-intro .text-huge-title'],
         translateX: [100, 0],
         opacity: [0, 1],
         delay: anime.stagger(400)
     })
     .add({
+        targets: ['#certFilter', '.cert-dropdown-wrapper'], // Tambahkan animasi untuk dropdown
+        translateY: [20, 0], // Efek rise up
+        opacity: [0, 1]
+    })
+    .add({
         targets: '.circles span',
         keyframes: [
-            {opacity: [0, .3]},
-            {opacity: [.3, .1], delay: anime.stagger(100, {direction: 'reverse'})}
+            { opacity: [0, .3] },
+            { opacity: [.3, .1], delay: anime.stagger(100, { direction: 'reverse' }) }
         ],
-        delay: anime.stagger(100, {direction: 'reverse'})
+        delay: anime.stagger(100, { direction: 'reverse' })
     })
     .add({
         targets: '.intro-social li',
         translateX: [-50, 0],
         opacity: [0, 1],
-        delay: anime.stagger(100, {direction: 'reverse'})
+        delay: anime.stagger(100, { direction: 'reverse' })
     })
     .add({
         targets: '.intro-scrolldown',
         translateY: [100, 0],
         opacity: [0, 1]
     }, '-=800');
-
 
 
    /* Preloader
@@ -346,19 +350,19 @@
     }; // end ssMoveTo
     const filterCertifications = function() {
         var selected = document.getElementById('certFilter').value;
-        
+    
         var certSection = document.getElementById('certifications');
-        if (!certSection) return; 
+        if (!certSection) return;
     
         var allCerts = certSection.querySelectorAll('.timeline__block');
     
         allCerts.forEach(cert => {
             if (selected === 'all' || cert.classList.contains('cert-' + selected)) {
-                cert.style.display = "block"; // Pastikan elemen tampil sebelum animasi
-                setTimeout(() => cert.classList.add('show'), 10);
+                cert.style.display = "block"; // Tampilkan elemen
+                cert.classList.add('show'); // Tambahkan kelas 'show'
             } else {
-                cert.classList.remove('show');
-                setTimeout(() => cert.style.display = "none", 500); // Sembunyikan setelah animasi selesai
+                cert.style.display = "none"; // Sembunyikan elemen
+                cert.classList.remove('show'); // Hapus kelas 'show'
             }
         });
     };
@@ -381,7 +385,6 @@
         });
     
     })();
-    
     
     
 

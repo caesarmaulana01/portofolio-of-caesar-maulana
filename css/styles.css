@@ -3488,20 +3488,6 @@ img.u-pull-left {
     position       : relative;
 }
 
-/* Animasi Slide Down untuk Certifications */
-#certifications .timeline__block {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transform: translateY(-10px);
-    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-#certifications .timeline__block.show {
-    opacity: 1;
-    max-height: 1000px; /* Cukup besar agar bisa auto menyesuaikan */
-    transform: translateY(0);
-}
 
 
 
@@ -3551,35 +3537,33 @@ img.u-pull-left {
     color: var(--color-text-dark);
 }
 
+
+
+/* Dropdown Styling */
 .cert-dropdown-wrapper {
     position: relative;
     display: inline-block;
     width: 100%;
     max-width: 350px;
+    opacity: 0; /* Mulai dengan elemen tidak terlihat */
+    transform: translateY(20px); /* Mulai dari posisi 20px ke bawah */
 }
 
-/* Custom Arrow untuk Dropdown Certification */
+/* Custom Arrow untuk Dropdown */
 .cert-dropdown-wrapper::after {
     content: "";
     position: absolute;
     top: 35%;
-    right: 10px; /* Dekat dengan teks */
-    transform: translateY(-50%);
+    right: 10px;
     width: 0;
     height: 0;
-    border-left: 6px solid transparent; /* Garis kiri segitiga */
-    border-right: 6px solid transparent; /* Garis kanan segitiga */
-    border-top: 8px solid var(--color-text); /* Bagian atas segitiga */
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid var(--color-text);
     pointer-events: none;
-    transition: border-top-color 0.3s ease;
 }
 
-/* Hover Effect untuk Custom Arrow */
-.cert-dropdown-wrapper:hover::after {
-    border-top-color: var(--color-text-dark);
-}
-
-/* Tambahan CSS untuk styling dropdown agar lebih baik */
+/* Styling untuk Dropdown */
 .cert-dropdown-wrapper select {
     width: 100%;
     padding: 10px;
@@ -3593,17 +3577,21 @@ img.u-pull-left {
     appearance: none;
 }
 
+
+
+/* Hover Effect untuk Custom Arrow */
+.cert-dropdown-wrapper:hover::after {
+    border-top-color: var(--color-text-dark);
+}
+
+
 /* Fokus pada dropdown */
 #certFilter:focus {
     outline: none;
     border-color: var(--color-text-dark);
 }
 
-/* Dropdown ketika aktif */
-.cert-dropdown-wrapper select:focus + .cert-dropdown-wrapper::after {
-    transform: translateY(-50%) rotate(180deg);
-}
-
+/* Dropdown ketika aktif *
 /* Gaya tambahan untuk meningkatkan UX */
 .cert-dropdown-wrapper select option {
     background: var(--color-body);
