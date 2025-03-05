@@ -4061,6 +4061,7 @@ img.u-pull-left {
     .achievement-slider__image {
         width         : auto;
         height        : auto;
+        max-height: 300px;
         border-radius : 0;
         outline       : none;
         position      : relative;
@@ -4391,5 +4392,11 @@ img.u-pull-left {
     .ss-go-top {
         right : 6vw;
     }
+}
+
+.column.lg-6:nth-child(2) .modal-popup__desc h5,
+.column.lg-6:nth-child(2) .modal-popup__desc p {
+    margin-top: 50px;
+    text-align: left;
 }
 
