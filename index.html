@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
 
     <!-- favicons
     ================================================== -->
@@ -96,10 +97,10 @@
                         </div>
 
                         <h1 class="text-huge-title">
-                            I am T. Muhammad Caesar Maulana, <br>
-                            a fresh graduate <br>
-                            of Computer<br> 
-                            Engineering.
+                            I am <br> 
+                            T. M. Caesar Maulana, <br>
+                            a Computer Engineering <br>
+                            graduate
                         </h1>
                     </div>
 
@@ -153,11 +154,11 @@
                         <h2 class="text-pretitle" data-animate-el>Expertise</h2>
 
                         <ul class="skills-list h1" data-animate-el>
-                            <li>Artificial Intelligence</li>
-                            <li>Mobile development</li>
-                            <li>Web development</li>
-                            <li>IoT-based System</li>
+                            <li>Artificial Intelligence (AI)</li>
+                            <li>IoT-Based Systems</li>
+                            <li>Mobile and Web Development</li>
                         </ul>
+                        
 
                     </div>
                 </div> <!-- end about-expertise -->
@@ -181,7 +182,7 @@
                                     <p class="timeline__timeframe">Aug 2020 - Sep 2024</p>
                                 </div>
                                 <div class="timeline__desc">
-                                    <p>Bachelor’s Degree in Computer Engineering, GPA: 3.81/4.00 (Cum Laude)</p>
+                                    <p>Active in student organizations. Participated in national and international competitions, and publishing research papers.</p>
                                 </div>
                             </div>
                 
@@ -212,15 +213,26 @@
                     </div> <!-- end column -->
                 
                 
-                    <div class="column lg-12 tab-12">
-                
-                        <h2 class="text-pretitle" data-animate-el>
-                            Certifications
-                        </h2>
-                
+                    <div id="certifications" class="column lg-12 tab-12">
+
+                        <h2 class="text-pretitle" data-animate-el>Certifications</h2>
+
+                        <!-- Dropdown Filter -->
+                        <div class="cert-dropdown-wrapper">
+                            <select id="certFilter" onchange="filterCertifications()">
+                                <option value="all">All</option>
+                                <option value="ai" selected>AI & Data Science</option> <!-- Default -->
+                                <option value="web">Web Development</option>
+                                <option value="cloud">Cloud Computing</option>
+                            </select>
+
+                            
+                        </div>
+
                         <div class="timeline" data-animate-el>
-                
-                            <div class="timeline__block">
+
+                            <!-- AI & Data Science Certifications -->
+                            <div class="timeline__block cert-ai">
                                 <div class="timeline__bullet"></div>
                                 <div class="timeline__header">
                                     <h4 class="timeline__title">Certified Developer Generative AI</h4>
@@ -228,35 +240,8 @@
                                     <p class="timeline__timeframe">Issued Dec 2024 - Expires Dec 2026</p>
                                 </div>
                             </div>
-                
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Tools for Data Science</h4>
-                                    <h5 class="timeline__meta">Coursera</h5>
-                                    <p class="timeline__timeframe">Issued Jan 2023</p>
-                                </div>
-                            </div>
-                
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Python for Data Science, AI & Development</h4>
-                                    <h5 class="timeline__meta">Coursera</h5>
-                                    <p class="timeline__timeframe">Issued Jan 2023</p>
-                                </div>
-                            </div>
-                
-                            <div class="timeline__block">
-                                <div class="timeline__bullet"></div>
-                                <div class="timeline__header">
-                                    <h4 class="timeline__title">Data Science Methodology</h4>
-                                    <h5 class="timeline__meta">Coursera</h5>
-                                    <p class="timeline__timeframe">Issued Jan 2023</p>
-                                </div>
-                            </div>
-                
-                            <div class="timeline__block">
+
+                            <div class="timeline__block cert-ai">
                                 <div class="timeline__bullet"></div>
                                 <div class="timeline__header">
                                     <h4 class="timeline__title">Machine Learning Learning Path</h4>
@@ -264,11 +249,77 @@
                                     <p class="timeline__timeframe">Issued Sep 2022 - Expires Sep 2025</p>
                                 </div>
                             </div>
-                        </div> <!-- end timeline -->
+
+                            <div class="timeline__block cert-ai">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Python for Data Science, AI & Development</h4>
+                                    <h5 class="timeline__meta">Coursera</h5>
+                                    <p class="timeline__timeframe">Issued Jan 2023</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline__block cert-web">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Data Science Methodology</h4>
+                                    <h5 class="timeline__meta">Coursera</h5>
+                                    <p class="timeline__timeframe">Issued Jan 2023</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline__block cert-ai">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Tools for Data Science</h4>
+                                    <h5 class="timeline__meta">Coursera</h5>
+                                    <p class="timeline__timeframe">Issued Jan 2023</p>
+                                </div>
+                            </div>
+
+                            <!-- Software Development Certifications -->
+                            <div class="timeline__block cert-dev">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Full-Stack Web Development</h4>
+                                    <h5 class="timeline__meta">Udemy</h5>
+                                    <p class="timeline__timeframe">Issued Aug 2023</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline__block cert-dev">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Flutter App Development</h4>
+                                    <h5 class="timeline__meta">Google Developers</h5>
+                                    <p class="timeline__timeframe">Issued Jul 2023</p>
+                                </div>
+                            </div>
+
+                            <!-- Cloud & DevOps Certifications -->
+                            <div class="timeline__block cert-cloud">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">AWS Cloud Practitioner</h4>
+                                    <h5 class="timeline__meta">Amazon Web Services</h5>
+                                    <p class="timeline__timeframe">Issued Oct 2023 - Expires Oct 2026</p>
+                                </div>
+                            </div>
+
+                            <div class="timeline__block cert-cloud">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <h4 class="timeline__title">Google Cloud Associate Engineer</h4>
+                                    <h5 class="timeline__meta">Google Cloud</h5>
+                                    <p class="timeline__timeframe">Issued Nov 2023 - Expires Nov 2026</p>
+                                </div>
+                            </div>
+
                         </div> <!-- end timeline -->
                     </div> <!-- end column -->
-                
-                </div> <!-- end about-timelines -->
+
+
+
                 
 
             </section> <!-- end s-about -->
@@ -282,13 +333,13 @@
                 <div class="row works-portfolio">
 
                     <div class="column lg-12" data-animate-block>
-
                         <h2 class="text-pretitle" data-animate-el>
                             My Best Works
                         </h2>
                         <p class="h1" data-animate-el>
-                            Here are some of my favorite projects I have done lately. Feel free to check them out.
+                            Some of my favorite recent projects. Take a look!
                         </p>
+                        
     
                         <ul class="folio-list row block-lg-one-half block-stack-on-1000">
 
@@ -816,15 +867,13 @@
 
                 <div class="row contact-top">
                     <div class="column lg-12">
-                        <h2 class="text-pretitle">
-                            Get In Touch
-                        </h2>
+                        <h2 class="text-pretitle">Get In Touch</h2>
 
                         <p class="h1">
-                            I love to hear from you.
-                            Whether you have a question or just 
-                            want to chat about design, tech & art — shoot me a message.
+                            Have a question or want to discuss AI, software development, or IoT?  
+                            Drop me a message—I’d love to connect!
                         </p>
+                        
                     </div>
                 </div> <!-- end contact-top -->
 

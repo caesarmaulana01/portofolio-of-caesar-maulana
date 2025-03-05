@@ -344,12 +344,27 @@
         });
 
     }; // end ssMoveTo
-
-
-   /* Initialize
-    * ------------------------------------------------------ */
+    const filterCertifications = function() {
+        var selected = document.getElementById('certFilter').value;
+        
+        var certSection = document.getElementById('certifications');
+        if (!certSection) return; 
+    
+        var allCerts = certSection.querySelectorAll('.timeline__block');
+    
+        allCerts.forEach(cert => {
+            if (selected === 'all' || cert.classList.contains('cert-' + selected)) {
+                cert.style.display = "block"; // Pastikan elemen tampil sebelum animasi
+                setTimeout(() => cert.classList.add('show'), 10);
+            } else {
+                cert.classList.remove('show');
+                setTimeout(() => cert.style.display = "none", 500); // Sembunyikan setelah animasi selesai
+            }
+        });
+    };
+    
+    /* Initialize */
     (function ssInit() {
-
         ssPreloader();
         ssMobileMenu();
         ssScrollSpy();
@@ -358,7 +373,16 @@
         ssLightbox();
         ssAlertBoxes();
         ssMoveTo();
-
+        
+        // Pastikan filter bekerja saat pertama kali load
+        document.addEventListener("DOMContentLoaded", function() {
+            filterCertifications();
+            document.getElementById('certFilter').addEventListener('change', filterCertifications);
+        });
+    
     })();
+    
+    
+    
 
 })(document.documentElement);
